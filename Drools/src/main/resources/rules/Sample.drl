@@ -1,0 +1,591 @@
+package com.sample
+
+import javax.swing.*;
+import org.kie.api.runtime.*;
+import java.util.*;
+
+
+global JFrame frame;
+
+
+declare Question
+	text : String
+	options : ArrayList
+end
+
+declare Answer
+    question : Question @key
+    choice : String
+end
+
+declare Result
+	text: String
+end
+
+rule "Ask question"
+    when
+        question: Question()
+    then
+        Object[] options = question.getOptions().toArray();
+        int idx = JOptionPane.showOptionDialog(
+                frame, question.getText(), "Choose your work", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, 1);
+        if(idx != JOptionPane.CLOSED_OPTION) {
+            String choice = (String)options[idx];
+            Answer answer = new Answer(question, choice);
+            insert(answer);
+        }
+end
+
+rule "SHOW"
+    when
+        result: Result()
+    then
+        JOptionPane.showMessageDialog(frame, result.getText());
+end
+
+
+rule "INIT"
+	then
+		String question_text = "Would you reather work solo or with a team?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Team", "Solo"));
+		insert(new Question(question_text, options));
+end
+
+rule "Work solo"
+	when
+		answer : Answer(question.getText() == "Would you reather work solo or with a team?", choice == "Solo");
+	then
+		String question_text = "Do you tend to 'live in the moment'?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Tend to 'live in the moment'"
+	when
+		answer : Answer(question.getText() == "Do you tend to 'live in the moment'?", choice == "Yes");
+	then
+		String question_text = "Do you offen wonder about the meaning of life?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Offen wonder about the meaning of live"
+	when
+		answer : Answer(question.getText() == "Do you offen wonder about the meaning of life?", choice == "Yes");
+	then
+		String question_text = "Can you easily 'get' metaphors?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Don't wonder about the meaning of live"
+ 	when
+ 		answer : Answer(question.getText() == "Do you offen wonder about the meaning of life?", choice == "No");
+ 	then
+		String question_text = "Is 'How ___ works' in your recent search history?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+ end
+
+rule "Not tend to 'live in the moment'"
+	when
+		answer : Answer(question.getText() == "Do you tend to 'live in the moment'?", choice == "No");
+	then
+		String question_text = "Are you a people person?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "People person"
+	when
+		answer : Answer(question.getText() == "Are you a people person?", choice == "Yes");
+	then
+		String question_text = "Are you good with numbers?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Not people person"
+	when
+		answer : Answer(question.getText() == "Are you a people person?", choice == "No");
+	then
+		String question_text = "Is 'How ___ works' in your recent search history?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Good with numbers"
+	when
+		answer : Answer(question.getText() == "Are you good with numbers?", choice == "Yes");
+	then
+		String question_text = "Are you sqyeamish?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Not good with numbers"
+	when
+		answer : Answer(question.getText() == "Are you good with numbers?", choice == "No");
+	then
+		String question_text = "Are you willing to spend another 7+ years in school?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+
+rule "How works in recet search history"
+	when
+		answer : Answer(question.getText() == "Is 'How ___ works' in your recent search history?", choice == "Yes");
+	then
+		String question_text = "Do you love working with your hands?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "How works not in recet search history"
+	when
+		answer : Answer(question.getText() == "Is 'How ___ works' in your recent search history?", choice == "No");
+	then
+		String question_text = "Are you sqyeamish?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Not squeamish"
+	when
+		answer : Answer(question.getText() == "Are you sqyeamish?", choice == "No");
+	then
+		String question_text = "Empathetic?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Squeamish"
+	when
+		answer : Answer(question.getText() == "Are you sqyeamish?", choice == "Yes");
+	then
+		String question_text = "Does wearing a lab coat to work seem like a dream come true?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Not empathetic"
+	when
+		answer : Answer(question.getText() == "Empathetic?", choice == "No");
+	then
+		String question_text = "Does wearing a lab coat to work seem like a dream come true?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Empathetic"
+	when
+		answer : Answer(question.getText() == "Empathetic?", choice == "Yes");
+	then
+		String question_text = "Are you willing to spend another 7+ years in school?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Willing to spend another 7+ years in school"
+	when
+		answer : Answer(question.getText() == "Are you willing to spend another 7+ years in school?", choice == "Yes");
+	then
+		String question_text = "Would you like to work directly with patients?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Work directly with patients"
+	when
+		answer : Answer(question.getText() == "Would you like to work directly with patients?", choice == "Yes");
+	then
+		String question_text = "Would you want to focus on mental health?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Want to focus on mental health"
+	when
+		answer : Answer(question.getText() == "Would you want to focus on mental health?", choice == "Yes");
+	then
+    	insert(new Result("Mental & Social Health Services"));
+end
+
+rule "Don't want to focus on mental health"
+	when
+		answer : Answer(question.getText() == "Would you want to focus on mental health?", choice == "No");
+	then
+    	insert(new Result("Nursing, Rehab & Therapy"));
+end
+
+rule "Won't work directly with patients"
+	when
+		answer : Answer(question.getText() == "Would you like to work directly with patients?", choice == "No");
+	then
+    	insert(new Result("Clinical Lab Science or Health & Medical Admin or Public Health"));
+end
+
+rule "Not to spend another 7+ years in school"
+	when
+		answer : Answer(question.getText() == "Are you willing to spend another 7+ years in school?", choice == "No");
+	then
+		String question_text = "Are you good at interviews and 'reading people'?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Good at interviews"
+	when
+		answer : Answer(question.getText() == "Are you good at interviews and 'reading people'?", choice == "Yes");
+	then
+		String question_text = "Are you passionate about writing";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Passionate about writing"
+	when
+		answer : Answer(question.getText() == "Are you passionate about writing", choice == "Yes");
+	then
+		insert(new Result("Communications & Journalism"));
+end
+
+rule "Don't passionate about writing"
+	when
+		answer : Answer(question.getText() == "Are you passionate about writing", choice == "No");
+	then
+		String question_text = "Are you interested in how mind works?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Interested how mind works"
+	when
+		answer : Answer(question.getText() == "Are you interested in how mind works?", choice == "Yes");
+	then
+		insert(new Result("Psychology"));
+end
+
+rule "Not interested how mind works"
+	when
+		answer : Answer(question.getText() == "Are you interested in how mind works?", choice == "No");
+	then
+		String question_text = "Could you sell ice to an Eskimo?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Could sell ice to an Eskimo"
+	when
+		answer : Answer(question.getText() == "Could you sell ice to an Eskimo?", choice == "Yes");
+	then
+		insert(new Result("Sales & Marketing"));
+end
+
+rule "Couldn't sell ice to an Eskimo"
+	when
+		answer : Answer(question.getText() == "Could you sell ice to an Eskimo?", choice == "No");
+	then
+		String question_text = "Are you a 'big picture' kind of person?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "'Big picture' kind of person"
+	when
+		answer : Answer(question.getText() == "Are you a 'big picture' kind of person?", choice == "Yes");
+	then
+		insert(new Result("Business Management"));
+end
+
+rule "Not 'Big picture' kind of person"
+	when
+		answer : Answer(question.getText() == "Are you a 'big picture' kind of person?", choice == "No");
+	then
+		insert(new Result("Accounting & Finance"));
+end
+
+rule "Not good at interviews"
+	when
+		answer : Answer(question.getText() == "Are you good at interviews and 'reading people'?", choice == "No");
+	then
+		insert(new Result("Education or History or Social Sciences"));
+end
+
+rule "Wearing a lab coat is a dream"
+	when
+		answer : Answer(question.getText() == "Does wearing a lab coat to work seem like a dream come true?", choice == "Yes");
+	then
+		insert(new Result("Biochemistry or Psychical Sciences"));
+end
+
+rule "Wearing a lab coat is not a dream"
+	when
+		answer : Answer(question.getText() == "Does wearing a lab coat to work seem like a dream come true?", choice == "No");
+	then
+		String question_text = "Is art important to you?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Art is important"
+	when
+		answer : Answer(question.getText() == "Is art important to you?", choice == "Yes");
+	then
+		String question_text = "Do you doodle a lot during class?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Art is not important"
+	when
+		answer : Answer(question.getText() == "Is art important to you?", choice == "No");
+	then
+		String question_text = "Is math like a second language to you?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Math is like second language"
+	when
+		answer : Answer(question.getText() == "Is math like a second language to you?", choice == "Yes");
+	then
+		insert(new Result("Math"));
+end
+
+rule "Math is not like second language"
+	when
+		answer : Answer(question.getText() == "Is math like a second language to you?", choice == "No");
+	then
+		insert(new Result("Computer Sciences or Engeering"));
+end
+
+rule "Doodle a lot during class"
+	when
+		answer : Answer(question.getText() == "Do you doodle a lot during class?", choice == "Yes");
+	then
+		insert(new Result("Visual Art or Architecture"));
+end
+
+rule "Dont a lot during class"
+	when
+		answer : Answer(question.getText() == "Do you doodle a lot during class?", choice == "No");
+	then
+		String question_text = "Have you ever used the term 'dialectic desituationism' to denote the absurdity, and hence the fatal flaw of semiotic reality?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Used the term 'dialectic desituationism'"
+	when
+		answer : Answer(question.getText() == "Have you ever used the term 'dialectic desituationism' to denote the absurdity, and hence the fatal flaw of semiotic reality?", choice == "Yes");
+	then
+		insert(new Result("Philosophy"));
+end
+
+rule "Never used the term 'dialectic desituationism'"
+	when
+		answer : Answer(question.getText() == "Have you ever used the term 'dialectic desituationism' to denote the absurdity, and hence the fatal flaw of semiotic reality?", choice == "No");
+	then
+		insert(new Result("English or Foreign Language"));
+end
+
+rule "Can easily get metaphors'"
+	when
+		answer : Answer(question.getText() == "Can you easily 'get' metaphors?", choice == "Yes");
+	then
+		String question_text = "Do you doodle a lot during class?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Can't easily get metaphors'"
+	when
+		answer : Answer(question.getText() == "Can you easily 'get' metaphors?", choice == "No");
+	then
+		String question_text = "Do you love working with your hands?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Love working with hands"
+	when
+		answer : Answer(question.getText() == "Do you love working with your hands?", choice == "Yes");
+	then
+		String question_text = "Have you ever fixed something with duct tape or WD40?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Don't love working with hands"
+	when
+		answer : Answer(question.getText() == "Do you love working with your hands?", choice == "No");
+	then
+		String question_text = "Does wearing a lab coat to work seem like a dream come true?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Can fix something with duct tape or WD40"
+	when
+		answer : Answer(question.getText() == "Have you ever fixed something with duct tape or WD40?", choice == "Yes");
+	then
+		insert(new Result("Construction Trades or Repair Technology"));
+end
+
+rule "Never fixed something with duct tape or WD40"
+	when
+		answer : Answer(question.getText() == "Have you ever fixed something with duct tape or WD40?", choice == "No");
+	then
+		insert(new Result("Personal and Culinary Services"));
+end
+
+rule "Work team"
+	when
+		answer : Answer(question.getText() == "Would you reather work solo or with a team?", choice == "Team");
+	then
+		String question_text = "Do you follow your gut when it comes to life choices?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Follow gut"
+	when
+		answer : Answer(question.getText() == "Do you follow your gut when it comes to life choices?", choice == "Yes");
+	then
+		String question_text = "Do you consider yourself a leader?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Don't follow gut"
+	when
+		answer : Answer(question.getText() == "Do you follow your gut when it comes to life choices?", choice == "No");
+	then
+		String question_text = "Are you a thrill seeker?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Thrill seeker"
+	when
+		answer : Answer(question.getText() == "Are you a thrill seeker?", choice == "Yes");
+	then
+		String question_text = "Are you good with numbers?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Not a thrill seeker"
+	when
+		answer : Answer(question.getText() == "Are you a thrill seeker?", choice == "No");
+	then
+		String question_text = "Are you passionate about helping to improve health standards?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Passionate about helping to improve health standards"
+	when
+		answer : Answer(question.getText() == "Are you passionate about helping to improve health standards?", choice == "Yes");
+	then
+		String question_text = "Are you interested in science?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Not passionate about helping to improve health standards"
+	when
+		answer : Answer(question.getText() == "Are you passionate about helping to improve health standards?", choice == "No");
+	then
+		String question_text = "Is your workspace messy?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Messy workspace"
+	when
+		answer : Answer(question.getText() == "Is your workspace messy?", choice == "Yes");
+	then
+		String question_text = "Could you learn to love Microsoft Excel?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Messy is not workspace"
+	when
+		answer : Answer(question.getText() == "Is your workspace messy?", choice == "No");
+	then
+		String question_text = "Are you interested in science?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Could learn to love Excel"
+	when
+		answer : Answer(question.getText() == "Could you learn to love Microsoft Excel?", choice == "Yes");
+	then
+		String question_text = "Could you sell ice to an Eskimo?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Couldn't learn to love Excel"
+	when
+		answer : Answer(question.getText() == "Could you learn to love Microsoft Excel?", choice == "No");
+	then
+		String question_text = "Is justice more important than mercy?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end 
+
+rule "Justice more important than mercy"
+	when
+		answer : Answer(question.getText() == "Is justice more important than mercy?", choice == "Yes");
+	then
+		insert(new Result("Law and Legal Services or Public Admin or Security & Protective Services"));
+end
+
+rule "Justice isn't more important than mercy"
+	when
+		answer : Answer(question.getText() == "Is justice more important than mercy?", choice == "No");
+	then
+		insert(new Result("Social Services or Theological Studies"));
+end
+
+rule "Interested in science?"
+	when
+		answer : Answer(question.getText() == "Are you interested in science?", choice == "Yes");
+	then
+		String question_text = "Are you willing to spend another 7+ years in school?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Not interested in science?"
+	when
+		answer : Answer(question.getText() == "Are you interested in science?", choice == "No");
+	then
+		String question_text = "Are you good at interviews and 'reading people'?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Leader"
+	when
+		answer : Answer(question.getText() == "Do you consider yourself a leader?", choice == "Yes");
+	then
+		String question_text = "Could you learn to love Microsoft Excel?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end
+
+rule "Not a leader"
+	when
+		answer : Answer(question.getText() == "Do you consider yourself a leader?", choice == "No");
+	then
+		String question_text = "Are you passionate about helping to improve health standards?";
+		ArrayList<String> options = new ArrayList<>(Arrays.asList("Yes", "No"));
+		insert(new Question(question_text, options));
+end

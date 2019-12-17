@@ -1,0 +1,366 @@
+<object-stream>
+<org.drools.core.audit.WorkingMemoryLog>
+  <version>6.1</version>
+  <events>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>INIT [0]</activationId>
+      <rule>INIT</rule>
+      <declarations></declarations>
+      <factHandleIds>0</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>INIT [0]</activationId>
+      <rule>INIT</rule>
+      <declarations></declarations>
+      <factHandleIds>0</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>1</factId>
+      <objectToString>Question( text=Would you reather work solo or with a team?, options=[Team, Solo] )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>INIT [0]</activationId>
+      <rule>INIT</rule>
+      <declarations></declarations>
+      <factHandleIds>0</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Ask question [1]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Would you reather work solo or with a team?, options=[Team, Solo] )</declarations>
+      <factHandleIds>1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Ask question [1]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Would you reather work solo or with a team?, options=[Team, Solo] )</declarations>
+      <factHandleIds>1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>2</factId>
+      <objectToString>Answer( question=Question( text=Would you reather work solo or with a team?, options=[Team, Solo] ), choice=Team )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Ask question [1]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Would you reather work solo or with a team?, options=[Team, Solo] )</declarations>
+      <factHandleIds>1</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Work team [2]</activationId>
+      <rule>Work team</rule>
+      <declarations>answer=Answer( question=Question( text=Would you reather work solo or with a team?, options=[Team, Solo] ), choice=Team )</declarations>
+      <factHandleIds>2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Work team [2]</activationId>
+      <rule>Work team</rule>
+      <declarations>answer=Answer( question=Question( text=Would you reather work solo or with a team?, options=[Team, Solo] ), choice=Team )</declarations>
+      <factHandleIds>2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>3</factId>
+      <objectToString>Question( text=Do you follow your gut when it comes to life choices?, options=[Yes, No] )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Work team [2]</activationId>
+      <rule>Work team</rule>
+      <declarations>answer=Answer( question=Question( text=Would you reather work solo or with a team?, options=[Team, Solo] ), choice=Team )</declarations>
+      <factHandleIds>2</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Ask question [3]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Do you follow your gut when it comes to life choices?, options=[Yes, No] )</declarations>
+      <factHandleIds>3</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Ask question [3]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Do you follow your gut when it comes to life choices?, options=[Yes, No] )</declarations>
+      <factHandleIds>3</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>4</factId>
+      <objectToString>Answer( question=Question( text=Do you follow your gut when it comes to life choices?, options=[Yes, No] ), choice=Yes )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Ask question [3]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Do you follow your gut when it comes to life choices?, options=[Yes, No] )</declarations>
+      <factHandleIds>3</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Follow gut [4]</activationId>
+      <rule>Follow gut</rule>
+      <declarations>answer=Answer( question=Question( text=Do you follow your gut when it comes to life choices?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>4</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Follow gut [4]</activationId>
+      <rule>Follow gut</rule>
+      <declarations>answer=Answer( question=Question( text=Do you follow your gut when it comes to life choices?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>4</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>5</factId>
+      <objectToString>Question( text=Do you consider yourself a leader?, options=[Yes, No] )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Follow gut [4]</activationId>
+      <rule>Follow gut</rule>
+      <declarations>answer=Answer( question=Question( text=Do you follow your gut when it comes to life choices?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>4</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Ask question [5]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Do you consider yourself a leader?, options=[Yes, No] )</declarations>
+      <factHandleIds>5</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Ask question [5]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Do you consider yourself a leader?, options=[Yes, No] )</declarations>
+      <factHandleIds>5</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>6</factId>
+      <objectToString>Answer( question=Question( text=Do you consider yourself a leader?, options=[Yes, No] ), choice=Yes )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Ask question [5]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Do you consider yourself a leader?, options=[Yes, No] )</declarations>
+      <factHandleIds>5</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Leader [6]</activationId>
+      <rule>Leader</rule>
+      <declarations>answer=Answer( question=Question( text=Do you consider yourself a leader?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>6</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Leader [6]</activationId>
+      <rule>Leader</rule>
+      <declarations>answer=Answer( question=Question( text=Do you consider yourself a leader?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>6</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>7</factId>
+      <objectToString>Question( text=Could you learn to love Microsoft Excel?, options=[Yes, No] )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Leader [6]</activationId>
+      <rule>Leader</rule>
+      <declarations>answer=Answer( question=Question( text=Do you consider yourself a leader?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>6</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Ask question [7]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Could you learn to love Microsoft Excel?, options=[Yes, No] )</declarations>
+      <factHandleIds>7</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Ask question [7]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Could you learn to love Microsoft Excel?, options=[Yes, No] )</declarations>
+      <factHandleIds>7</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>8</factId>
+      <objectToString>Answer( question=Question( text=Could you learn to love Microsoft Excel?, options=[Yes, No] ), choice=Yes )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Ask question [7]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Could you learn to love Microsoft Excel?, options=[Yes, No] )</declarations>
+      <factHandleIds>7</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Could learn to love Excel [8]</activationId>
+      <rule>Could learn to love Excel</rule>
+      <declarations>answer=Answer( question=Question( text=Could you learn to love Microsoft Excel?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>8</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Could learn to love Excel [8]</activationId>
+      <rule>Could learn to love Excel</rule>
+      <declarations>answer=Answer( question=Question( text=Could you learn to love Microsoft Excel?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>8</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>9</factId>
+      <objectToString>Question( text=Could you sell ice to an Eskimo?, options=[Yes, No] )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Could learn to love Excel [8]</activationId>
+      <rule>Could learn to love Excel</rule>
+      <declarations>answer=Answer( question=Question( text=Could you learn to love Microsoft Excel?, options=[Yes, No] ), choice=Yes )</declarations>
+      <factHandleIds>8</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Ask question [9]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Could you sell ice to an Eskimo?, options=[Yes, No] )</declarations>
+      <factHandleIds>9</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Ask question [9]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Could you sell ice to an Eskimo?, options=[Yes, No] )</declarations>
+      <factHandleIds>9</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>10</factId>
+      <objectToString>Answer( question=Question( text=Could you sell ice to an Eskimo?, options=[Yes, No] ), choice=No )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Ask question [9]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Could you sell ice to an Eskimo?, options=[Yes, No] )</declarations>
+      <factHandleIds>9</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Couldn&apos;t sell ice to an Eskimo [10]</activationId>
+      <rule>Couldn&apos;t sell ice to an Eskimo</rule>
+      <declarations>answer=Answer( question=Question( text=Could you sell ice to an Eskimo?, options=[Yes, No] ), choice=No )</declarations>
+      <factHandleIds>10</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Couldn&apos;t sell ice to an Eskimo [10]</activationId>
+      <rule>Couldn&apos;t sell ice to an Eskimo</rule>
+      <declarations>answer=Answer( question=Question( text=Could you sell ice to an Eskimo?, options=[Yes, No] ), choice=No )</declarations>
+      <factHandleIds>10</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>11</factId>
+      <objectToString>Question( text=Are you a &apos;big picture&apos; kind of person?, options=[Yes, No] )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Couldn&apos;t sell ice to an Eskimo [10]</activationId>
+      <rule>Couldn&apos;t sell ice to an Eskimo</rule>
+      <declarations>answer=Answer( question=Question( text=Could you sell ice to an Eskimo?, options=[Yes, No] ), choice=No )</declarations>
+      <factHandleIds>10</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Ask question [11]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Are you a &apos;big picture&apos; kind of person?, options=[Yes, No] )</declarations>
+      <factHandleIds>11</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Ask question [11]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Are you a &apos;big picture&apos; kind of person?, options=[Yes, No] )</declarations>
+      <factHandleIds>11</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>12</factId>
+      <objectToString>Answer( question=Question( text=Are you a &apos;big picture&apos; kind of person?, options=[Yes, No] ), choice=No )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Ask question [11]</activationId>
+      <rule>Ask question</rule>
+      <declarations>question=Question( text=Are you a &apos;big picture&apos; kind of person?, options=[Yes, No] )</declarations>
+      <factHandleIds>11</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>Not &apos;Big picture&apos; kind of person [12]</activationId>
+      <rule>Not &apos;Big picture&apos; kind of person</rule>
+      <declarations>answer=Answer( question=Question( text=Are you a &apos;big picture&apos; kind of person?, options=[Yes, No] ), choice=No )</declarations>
+      <factHandleIds>12</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>Not &apos;Big picture&apos; kind of person [12]</activationId>
+      <rule>Not &apos;Big picture&apos; kind of person</rule>
+      <declarations>answer=Answer( question=Question( text=Are you a &apos;big picture&apos; kind of person?, options=[Yes, No] ), choice=No )</declarations>
+      <factHandleIds>12</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ObjectLogEvent>
+      <type>1</type>
+      <factId>13</factId>
+      <objectToString>Result( text=Accounting &amp; Finance )</objectToString>
+    </org.drools.core.audit.event.ObjectLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>Not &apos;Big picture&apos; kind of person [12]</activationId>
+      <rule>Not &apos;Big picture&apos; kind of person</rule>
+      <declarations>answer=Answer( question=Question( text=Are you a &apos;big picture&apos; kind of person?, options=[Yes, No] ), choice=No )</declarations>
+      <factHandleIds>12</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>4</type>
+      <activationId>SHOW [13]</activationId>
+      <rule>SHOW</rule>
+      <declarations>result=Result( text=Accounting &amp; Finance )</declarations>
+      <factHandleIds>13</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>6</type>
+      <activationId>SHOW [13]</activationId>
+      <rule>SHOW</rule>
+      <declarations>result=Result( text=Accounting &amp; Finance )</declarations>
+      <factHandleIds>13</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+    <org.drools.core.audit.event.ActivationLogEvent>
+      <type>7</type>
+      <activationId>SHOW [13]</activationId>
+      <rule>SHOW</rule>
+      <declarations>result=Result( text=Accounting &amp; Finance )</declarations>
+      <factHandleIds>13</factHandleIds>
+    </org.drools.core.audit.event.ActivationLogEvent>
+  </events>
+</org.drools.core.audit.WorkingMemoryLog>
+</object-stream>
