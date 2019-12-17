@@ -1,4 +1,4 @@
 # SI_projekt
 Autorzy:
-Kamil Basiukajc
-Mariusz Sałaj
+Kamil Basiukajc 136681
+Mariusz Sałaj 136795
